@@ -1,0 +1,20 @@
+{
+  "extends": "@repo/typescript-config/base.json",
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress", "node", "@testing-library/cypress"],
+    "declaration": false,
+    "declarationMap": false
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    ".nyc_output",
+    "cypress-coverage",
+  ]
+}

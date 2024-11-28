@@ -1,0 +1,50 @@
+{
+  "name": "e2e",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:pw": "playwright test",
+    "start:docs": "(cd ../../apps/docs && pnpm run start)",
+    "start:web": "(cd ../../apps/web && pnpm run start)",
+    "e2e:cy": "start-server-and-test start:web 3000 start:docs 3001 cy:run",
+    "e2e:pw": "start-server-and-test start:web 3000 start:docs 3001 test:pw",
+    "clean": "rm -rf .turbo && rm -rf cypress-coverage && rm -rf test-results && rm -rf .nyc_output"
+  },
+  "nyc": {
+    "extends": ".nycrc.json",
+    "report-dir": "cypress-coverage",
+    "exclude": [
+      "node_modules",
+      "**/.next/**",
+      "**/node_modules/**",
+      "../../node_modules/**",
+      "cypress",
+      "cypress_coverage",
+      "__tests__",
+      "vitest.config.ts"
+    ],
+    "reporter": [
+      "json",
+      "lcov",
+      "text-summary"
+    ]
+  },
+  "dependencies": {
+    "docs": "workspace:*",
+    "start-server-and-test": "^2.0.8",
+    "web": "workspace:*"
+  },
+  "devDependencies": {
+    "@cypress/code-coverage": "^3.13.7",
+    "@playwright/test": "^1.49.0",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/tailwind-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "babel-plugin-istanbul": "^7.0.0",
+    "cypress": "^13.16.0",
+    "nyc": "^17.1.0",
+    "typescript": "5.5.4"
+  }
+}

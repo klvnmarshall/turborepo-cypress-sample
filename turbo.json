@@ -6,6 +6,7 @@
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
     },
+    "start": {},
     "lint": {},
     "type-check": {},
     "dev": {
@@ -13,6 +14,20 @@
       "persistent": true
     },
     "clean": {
+      "cache": false
+    },
+    "test:cy": {
+      "cache": false
+    },
+    "test:pw": {
+      "cache": false
+    },
+    "e2e:cy": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
+    "e2e:pw": {
+      "dependsOn": ["^build"],
       "cache": false
     }
   }

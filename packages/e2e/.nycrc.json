@@ -1,0 +1,17 @@
+{
+  "extends": "@istanbuljs/nyc-config-typescript",
+  "extension": [
+    ".ts",
+    ".tsx"
+  ],
+  "include": [
+    "../../apps/web/src/**/*.tsx",
+    "../../apps/web/src/**/*.ts",
+    "../../apps/docs/src/**/*.tsx",
+    "../../apps/docs/src/**/*.ts"
+  ],
+  "all": true,
+  "sourceMap": true,
+  "instrument": true,
+  "excludeNodeModules": true
+}
